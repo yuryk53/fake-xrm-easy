@@ -1,6 +1,5 @@
 ﻿using FakeItEasy;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Workflow;
 using System;
 using System.Activities;
 using System.Collections.Generic;

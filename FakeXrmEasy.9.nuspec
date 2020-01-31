@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>FakeXrmEasy.9</id>
-    <version>1.9.1</version>
-    <authors>@jordimontana</authors>
+    <version>2.9.1</version>
+    <authors>@jordimontana, Yurii Bilyk</authors>
     <owners>@jordimontana</owners>
     <licenseUrl>https://raw.githubusercontent.com/jordimontana82/fake-xrm-easy/master/LICENSE.md</licenseUrl>
     <projectUrl>http://dynamicsvalue.com/home?source=nuget</projectUrl>
