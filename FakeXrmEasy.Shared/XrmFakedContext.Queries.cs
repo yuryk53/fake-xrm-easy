@@ -300,7 +300,7 @@ namespace FakeXrmEasy
                     lst.Add((T)cloned);
                 }
                 else
-                    lst.Add((T)e.Clone());
+                    lst.Add((T)e.Clone(this));
             }
 
             return lst.AsQueryable();
