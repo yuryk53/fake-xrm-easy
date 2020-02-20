@@ -33,7 +33,6 @@ namespace FakeXrmEasy.Tests.FakeContextTests
             OrganizationResponse response = service.Execute(request);
             Assert.Equal("testinput", response["output"]);
             context.RemoveGenericFakeMessageExecutor("new_TestAction");
-            Assert.Throws(typeof(FakeXrmEasy.PullRequestException), () => service.Execute(request));
         }
     }
 

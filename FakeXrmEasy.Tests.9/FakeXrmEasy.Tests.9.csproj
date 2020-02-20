@@ -173,6 +173,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="CustomActivityAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
