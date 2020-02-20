@@ -239,7 +239,7 @@ namespace FakeXrmEasy.Extensions
                 return copy;
             }
 #endif
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
             else if(attributeValue is OptionSetValueCollection)
             {
                 var original = (attributeValue as OptionSetValueCollection);

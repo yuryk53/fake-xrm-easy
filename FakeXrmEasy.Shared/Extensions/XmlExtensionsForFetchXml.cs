@@ -13,7 +13,7 @@ namespace FakeXrmEasy.Extensions.FetchXml
     {
         private static IEnumerable<ConditionOperator> OperatorsNotToConvertArray = new[]
         {
-#if FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
             ConditionOperator.OlderThanXWeeks,
             ConditionOperator.OlderThanXYears,
             ConditionOperator.OlderThanXDays,
@@ -476,7 +476,7 @@ namespace FakeXrmEasy.Extensions.FetchXml
                 case "next-x-weeks":
                     op = ConditionOperator.NextXWeeks;
                     break;
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
                 case "contain-values":
                     op = ConditionOperator.ContainValues;
                     break;
@@ -505,7 +505,7 @@ namespace FakeXrmEasy.Extensions.FetchXml
             //Otherwise, a single value was used
             if (value != null)
             {
-#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
                 if (string.IsNullOrWhiteSpace(conditionEntityName))
                 {
                     return new ConditionExpression(attributeName, op, GetConditionExpressionValueCast(value, ctx, entityName, attributeName, op));
@@ -521,7 +521,7 @@ namespace FakeXrmEasy.Extensions.FetchXml
 #endif
             }
 
-#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
 
             if (string.IsNullOrWhiteSpace(conditionEntityName))
             {
@@ -545,7 +545,7 @@ namespace FakeXrmEasy.Extensions.FetchXml
             if (t == typeof(int)
                 || t == typeof(int?)
                 || t.IsOptionSet()
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
                 || t.IsOptionSetValueCollection()
 #endif
             )

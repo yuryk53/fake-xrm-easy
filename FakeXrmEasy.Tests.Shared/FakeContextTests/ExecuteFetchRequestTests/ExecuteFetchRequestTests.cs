@@ -62,7 +62,7 @@ namespace FakeXrmEasy.Tests.FakeContextTests.ExecuteFetchRequestTests
             Assert.Equal(@"<new_contact name=""Test"" formattedvalue=""1"">1</new_contact>", element.ToString());
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         [Fact]
         public void Test_Conversion_OptionSetValueCollection_ToXml()
         {

@@ -1,4 +1,4 @@
-﻿#if FAKE_XRM_EASY_9
+﻿#if FAKE_XRM_EASY_CORE_9
 using System.Linq;
 using System.ServiceModel;
 using Crm;

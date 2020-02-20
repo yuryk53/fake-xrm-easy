@@ -617,7 +617,7 @@ namespace FakeXrmEasy.Tests
             }
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         [Fact]
         public void When_doing_a_crm_linq_query_with_an_optionsetvaluecollection_in_where_filter_exception_is_thrown()
         {

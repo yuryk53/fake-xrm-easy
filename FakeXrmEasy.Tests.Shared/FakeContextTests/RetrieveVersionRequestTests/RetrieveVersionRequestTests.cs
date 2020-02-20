@@ -33,7 +33,7 @@ namespace FakeXrmEasy.Tests.FakeContextTests.RetrieveVersionRequestTests
             var majorVersion = versionComponents[0];
             var minorVersion = versionComponents[1];
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
 
             Assert.True(int.Parse(majorVersion) >= 9);
 

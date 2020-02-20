@@ -183,7 +183,7 @@ namespace FakeXrmEasy.FakeMessageExecutors
             {
                 attributeValueElement = XElement.Parse(String.Format("<{0}>{1}</{0}>", entAtt.Key, entAtt.Value.ToString().ToUpper())); ;
             }
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
             else if (entAtt.Value is OptionSetValueCollection)
             {
                 var optionSetValueCollectionVal = entAtt.Value as OptionSetValueCollection;

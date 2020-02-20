@@ -161,7 +161,7 @@ namespace FakeXrmEasy
                     return typeof(Guid);
 
                 case Microsoft.Xrm.Sdk.Metadata.AttributeTypeCode.Virtual:
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
                     if (attribute.AttributeTypeName.Value == "MultiSelectPicklistType")
                     {
                         return typeof(OptionSetValueCollection);
@@ -225,7 +225,7 @@ namespace FakeXrmEasy
                     // ignored
                 }
             }
-#if FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
             else if (attributeInfo.PropertyType.FullName.StartsWith("System.Nullable"))
             {
                 return attributeInfo.PropertyType.GenericTypeArguments[0];
@@ -565,7 +565,7 @@ namespace FakeXrmEasy
 
             //If the attribute comes from a joined entity, then we need to access the attribute from the join
             //But the entity name attribute only exists >= 2013
-#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
             string attributeName = "";
 
             //Do not prepend the entity name if the EntityLogicalName is the same as the QueryExpression main logical name
@@ -745,7 +745,7 @@ namespace FakeXrmEasy
                     operatorExpression = TranslateConditionExpressionNext(c, getNonBasicValueExpr, containsAttributeExpression);
                     break;
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
                 case ConditionOperator.ContainValues:
                     operatorExpression = TranslateConditionExpressionContainValues(c, getNonBasicValueExpr, containsAttributeExpression);
                     break;
@@ -776,7 +776,7 @@ namespace FakeXrmEasy
             Expression validateOperatorTypeExpression = Expression.Empty();
             ConditionOperator[] supportedOperators = (ConditionOperator[])Enum.GetValues(typeof(ConditionOperator));
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
             if (typedExpression.AttributeType == typeof(OptionSetValueCollection))
             {
                 supportedOperators = new[]
@@ -977,7 +977,7 @@ namespace FakeXrmEasy
                     return GetAppropiateCastExpressionBasedOnStringAndType(input, value, attributeType);
                 if (attributeType.IsDateTime())
                     return GetAppropiateCastExpressionBasedOnDateTime(input, value);
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
                 if (attributeType.IsOptionSetValueCollection())
                     return GetAppropiateCastExpressionBasedOnOptionSetValueCollection(input);
 #endif
@@ -1127,7 +1127,7 @@ namespace FakeXrmEasy
             return Expression.Call(typeof(XrmFakedContext).GetMethod("ConvertToHashSetOfInt"), input, Expression.Constant(true));
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         public static HashSet<int> ConvertToHashSetOfInt(object input, bool isOptionSetValueCollectionAccepted)
         {
             var set = new HashSet<int>();
@@ -1253,7 +1253,7 @@ namespace FakeXrmEasy
                 expOrValues = Expression.Equal(transformedExpression,
                                 GetAppropiateTypedValueAndType(unaryOperatorValue, c.AttributeType));
             }
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
             else if (c.AttributeType == typeof(OptionSetValueCollection))
             {
                 var conditionValue = GetSingleConditionValue(c);
@@ -1322,7 +1322,7 @@ namespace FakeXrmEasy
 
             BinaryExpression expOrValues = Expression.Or(Expression.Constant(false), Expression.Constant(false));
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
             if (tc.AttributeType == typeof(OptionSetValueCollection))
             {
                 var leftHandSideExpression = GetAppropiateCastExpressionBasedOnType(tc.AttributeType, getAttributeValueExpr, null);
@@ -1691,7 +1691,7 @@ namespace FakeXrmEasy
                 if (context.ProxyTypesAssembly != null)
                 {
 
-#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
                     if (c.EntityName != null)
                         sEntityName = qe.GetEntityNameFromAlias(c.EntityName);
                     else
@@ -1940,7 +1940,7 @@ namespace FakeXrmEasy
             return TranslateConditionExpressionBetween(tc, getAttributeValueExpr, containsAttributeExpr);
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         protected static Expression TranslateConditionExpressionContainValues(TypedConditionExpression tc, Expression getAttributeValueExpr, Expression containsAttributeExpr)
         {
             var leftHandSideExpression = GetAppropiateCastExpressionBasedOnType(tc.AttributeType, getAttributeValueExpr, null);

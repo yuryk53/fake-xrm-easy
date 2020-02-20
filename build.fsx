@@ -136,7 +136,7 @@ Target "BuildFakeXrmEasy.365" (fun _->
 
 Target "BuildFakeXrmEasy.9" (fun _->
     let properties =
-        [ ("DefineConstants", "FAKE_XRM_EASY_9") ]
+        [ ("DefineConstants", "FAKE_XRM_EASY_CORE_9") ]
     !! @"FakeXrmEasy.9\*.csproj"
       |> MSBuild FakeXrmEasy9BuildDir "Rebuild" (properties)
       |> Log "Build - Output: "
@@ -184,7 +184,7 @@ Target "BuildFakeXrmEasy.Tests.365" (fun _->
 
 Target "BuildFakeXrmEasy.Tests.9" (fun _->
     let properties =
-        [ ("DefineConstants", "FAKE_XRM_EASY_9") ]
+        [ ("DefineConstants", "FAKE_XRM_EASY_CORE_9") ]
     !! @"FakeXrmEasy.Tests.9\*.csproj"
       |> MSBuild FakeXrmEasyTests9BuildDir "Rebuild" (properties)
       |> Log "Build - Output: "

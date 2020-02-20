@@ -488,7 +488,7 @@ namespace FakeXrmEasy.Tests.FakeContextTests.FetchXml
             Assert.Equal("Iniesta", query.Criteria.Conditions[0].Values[1].ToString());
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         [Fact]
         public void FetchXml_Operator_In_MultiSelectOptionSet()
         {
@@ -1394,7 +1394,7 @@ namespace FakeXrmEasy.Tests.FakeContextTests.FetchXml
             //Assert.Equal(22, retrievedDateSecond.Value.Day);
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         [Fact]
         public void FetchXml_Operator_ContainValues_Translation()
         {
@@ -1508,7 +1508,7 @@ namespace FakeXrmEasy.Tests.FakeContextTests.FetchXml
         }
 #endif
 
-#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_2013 || FAKE_XRM_EASY_2015 || FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_CORE_9
 
         [Fact]
         public void FetchXml_EntityName_Attribute_Translation()

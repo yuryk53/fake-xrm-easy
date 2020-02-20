@@ -68,7 +68,7 @@ namespace FakeXrmEasy.Tests
             Assert.Equal(context.Data["account"][guid]["name"], "After update");
         }
 
-#if FAKE_XRM_EASY_9
+#if FAKE_XRM_EASY_CORE_9
         [Fact]
         public void When_updating_an_optionsetvaluecollection_the_context_should_reflect_changes()
         {
