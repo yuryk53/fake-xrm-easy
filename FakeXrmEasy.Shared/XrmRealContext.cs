@@ -10,15 +10,7 @@ using System.Linq;
 
 using System.IO.Compression;
 using System.Runtime.Serialization;
-
-#if FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
-using Microsoft.Xrm.Tooling.Connector;
-#else
-
-using Microsoft.Xrm.Client;
-using Microsoft.Xrm.Client.Services;
-
-#endif
+using Microsoft.Powerplatform.Cds.Client;
 
 namespace FakeXrmEasy
 {
@@ -74,17 +66,9 @@ namespace FakeXrmEasy
                 throw new Exception("The ConnectionStringName property must be either a connection string or a connection string name");
             }
 
-#if FAKE_XRM_EASY_2016 || FAKE_XRM_EASY_365 || FAKE_XRM_EASY_9
-
             // Connect to the CRM web service using a connection string.
-            CrmServiceClient client = new Microsoft.Xrm.Tooling.Connector.CrmServiceClient(connectionString);
-            return client;
-
-#else
-            CrmConnection crmConnection = CrmConnection.Parse(connectionString);
-            OrganizationService service = new OrganizationService(crmConnection);
-            return service;
-#endif
+            CdsServiceClient cdsServiceClient = new CdsServiceClient(connectionString);
+            return cdsServiceClient;
         }
 
         public XrmFakedPluginExecutionContext GetContextFromSerialisedCompressedProfile(string sCompressedProfile)

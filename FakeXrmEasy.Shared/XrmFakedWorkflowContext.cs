@@ -1,5 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Workflow;
+﻿using FakeXrmEasy.FakeXrmEasy;
+using Microsoft.Xrm.Sdk;
 using System;
 
 namespace FakeXrmEasy
